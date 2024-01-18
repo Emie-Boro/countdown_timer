@@ -9,20 +9,42 @@ const Form = () =>{
     const [second, setSecond] = useState()
     const [targetDate, setTargetDate] = useState()
     
+    
     const handleSubmit = (e) =>{
         e.preventDefault()
 
-        setTargetDate(new Date(`${date}T${hour}:${minute}:${second}`))
+        const undefined_error = (value) =>{
+            if(value === undefined) {
+                alert(`${value} is required`);
+                return;
+            }
+        }
+        
+        undefined_error(date)
+        undefined_error(hour)
+        undefined_error(minute)
+        undefined_error(second)
 
-        if(date === undefined) {alert('Date is Required'); return}
-        if(hour === undefined) {alert('Hours is Required'); return}
-        if(minute === undefined) {alert('Minutes is Required'); return}
-        if(second === undefined) {alert('Seconds is Required'); return}
+        const formatting_time = (value) =>{
+            if(value === undefined) {
+                alert(`${value} is required`);
+                return;
+            }
+
+            if(value.length === 1) {
+                return '0'+value
+            } else{
+                return value
+            }
+        }
+        
+        setTargetDate(new Date(`${date}T${formatting_time(hour)}:${formatting_time(minute)}:${formatting_time(second)}`))
+
         setShowForm(!showForm)
     }
 
     return(
-        <div className="form-container">
+        <div className="container">
             <h1>Countdown Timer</h1>
             {showForm ? (<form onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -31,7 +53,7 @@ const Form = () =>{
                 </div>
                 <div className="form-group">
                     <label htmlFor="hour">Hour</label>
-                    <input type="number" name="hour" id="" value={hour} onChange={(e)=>setHour(e.target.value)}/>
+                    <input type="number" name="hour" id="" value={hour} onChange={(e)=>setHour(e.target.value)} max="23"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="minute">Minute</label>
@@ -43,8 +65,8 @@ const Form = () =>{
                 </div>
                 <button>Submit</button>
             </form>) : ''}
-            <Countdown targetDate={targetDate}/>
-            <button onClick={()=>window.location.reload()}>Refresh</button>
+            {showForm == false && <Countdown targetDate={targetDate}/> }
+            {showForm == false && <button onClick={()=>window.location.reload()}>Refresh</button> }
         </div>
     )
 }

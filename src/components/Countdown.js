@@ -27,7 +27,7 @@ const Countdown = ({targetDate}) =>{
     return(
         <div>
             {countBoolean && <h1>{days}:{hours}:{minute}:{second}</h1>}
-            {showButton && <button onClick={count}>Click</button>}
+            {showButton && <button onClick={count}>Start Counting</button>}
         </div>
     )
 }
