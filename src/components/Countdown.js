@@ -27,10 +27,10 @@ const Countdown = ({targetDate}) =>{
     return(
         <div>
             <div className="count-container">
-                    <h1><span className="count-time">{days}</span> Days</h1>
-                    <h1 ><span className="count-time">{hours}</span> Hours</h1>
-                    <h1 ><span className="count-time">{minute}</span> Minutes</h1>
-                    <h1 ><span className="count-time">{second}</span> Seconds</h1>
+                    <h1 style={{display:'flex'}}><span className="count-time">{days}</span><span>Days</span></h1>
+                    <h1 style={{display:'flex'}} ><span className="count-time">{hours}</span><span>Hours</span></h1>
+                    <h1 style={{display:'flex'}} ><span className="count-time">{minute}</span><span>Minutes</span></h1>
+                    <h1 style={{display:'flex'}} ><span className="count-time">{second}</span><span>Seconds</span></h1>
                 </div>
             {showButton ? <button className="btn-secondary" onClick={count}>Start Counting</button> : <button className="btn-secondary" onClick={()=> window.location.reload()}>Refresh</button>}
         </div>
