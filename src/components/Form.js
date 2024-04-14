@@ -53,7 +53,7 @@ const Form = () =>{
                     </div>
                     <div class="flex align-center divider">
                         <span class="hr"></span>
-                        <button class="btn-secondary" id="submit" style={{width: '20%'}}>Update</button>
+                        <button class="btn-secondary" id="submit">Update</button>
                     </div>
                 </form> 
             </div>

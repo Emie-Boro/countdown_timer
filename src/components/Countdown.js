@@ -32,7 +32,7 @@ const Countdown = ({targetDate}) =>{
                     <h1 style={{display:'flex'}} ><span className="count-time">{minute}</span><span>Minutes</span></h1>
                     <h1 style={{display:'flex'}} ><span className="count-time">{second}</span><span>Seconds</span></h1>
                 </div>
-            {showButton ? <button className="btn-secondary" onClick={count}>Start Counting</button> : <button className="btn-secondary" onClick={()=> window.location.reload()}>Refresh</button>}
+            {showButton ? <button className="btn-secondary" onClick={count}>Start Counting</button> : <button className="btn-secondary">Start Counting</button>}
         </div>
     )
 }

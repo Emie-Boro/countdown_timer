@@ -46,7 +46,7 @@ label{
     display: none;
 }
 .hr{
-    width: 80%;
+    width: 60%;
     height: 1px;
     background-color: var(--light-color);
     margin-right: 30px;
@@ -154,7 +154,7 @@ input:focus {
 /* Smaller Mobile Devices */
 @media (max-width:400px) {
     .container{
-        width: 60%;
+        width: 80%;
         padding: 30px 40px;
         border-bottom-right-radius: 20%; 
     }
